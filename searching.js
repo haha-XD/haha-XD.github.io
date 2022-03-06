@@ -40,7 +40,12 @@ function doBinarySearch(searchNumber) {
     let upper = numArray.length-1;
     let foundIt = false;
     let foundIndex;
-    while (!foundIt || lower > upper) {
+    /*
+    the sdd course specs has this && as a ||, 
+    which infinitely loops if number not found 
+    */
+    while (!foundIt && lower <= upper) { 
+        console.log(lower, upper)
         let middle = Math.trunc((upper + lower) / 2);
         if (numArray[middle] == searchNumber) {
             foundIt = true;
