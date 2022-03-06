@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<link rel="stylesheet" type="text/css" href="./main.css">
+    </head>
+    <body>
+        <div class="title">Algorithm Examples</div>
+        <hr style="width:50%;text-align:left;margin-left:0">
+        <div class="container">
+            <div class="left-col">
+                <div class="instructions">Random numbers:</div>
+                <input type="number" id="numberCount" value="10"></input>
+                <button onclick="generateResults()">Generate</button>
+                <br><br>
+                <div class="instructions">Find values:</div>
+                <button onclick="findMinimum()">Minimum</button>
+                <button onclick="findMaximum()">Maximum</button>
+                <button onclick="findSum()">Sum</button>
+                <br><br>
+                <div class="instructions">Perform a search:</div>
+                <input type="radio" id="linear" name="searchType" value="linear" checked="checked">
+                <label class="radio" for="linear">Linear</label><br>  
+                <input type="radio" id="binary" name="searchType" value="binary">
+                <label class="radio" for="binary">Binary</label><br>
+                <input type="number" id="searchNumber" value="0"></input>
+                <button onclick="doSearch()">Search</button>
+                <br><br>                
+                <div class="instructions">Perform a sort:</div>
+                <input type="radio" id="bubble" name="sortType" value="bubble" checked="checked">
+                <label class="radio" for="bubble">Bubble</label><br>  
+                <input type="radio" id="selection" name="sortType" value="selection">
+                <label class="radio" for="selection">Selection</label><br>
+                <input type="radio" id="insertion" name="sortType" value="insertion">
+                <label class="radio" for="insertion">Insertion</label><br>
+                <button onclick="doSort()">Search</button>
+                <br><br>
+            </div>
+            <div class="right-col">
+                <div class="results-title">Results</div>
+                <div class="results" id="results"></div>
+            </div>
+        </div>
+        <script src="./values.js"></script>
+        <script src="./searching.js"></script>
+        <script src="./sorting.js"></script>
+        <script>
+            let numArray = [];
+            let numArraySorted = false; 
+
+            function generateResults() {
+                let numCount = document.getElementById('numberCount').value;
+                numArray = [];
+                for (let i = 0; i < numCount; i++) {
+                    const randomNumber = Math.trunc(Math.random() * (1000));
+                    numArray.push(randomNumber);
+                }
+                numArraySorted = false;
+                updateResultsBox()
+            }
+
+            function updateResultsBox() {
+                console.log(numArray)
+                let results = document.getElementById('results')
+                results.innerHTML = '';
+                for (let i = 0; i < numArray.length; i++) {
+                    results.innerHTML += `${i+1}. ${numArray[i]}<br>`;
+                }
+            }
+
+            function swap(array, index1, index2) {
+                let temp = array[index1];
+                array[index1] = array[index2];
+                array[index2] = temp;
+            }
+        </script>
+    </body>
+</html>

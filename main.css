@@ -1,0 +1,35 @@
+body {
+    margin-top: 5%;
+    margin-left: 7%;
+}
+.instructions {
+    font: 1em "Open Sans", sans-serif;
+}
+.radio {
+    font: 1em "Open Sans", sans-serif;
+}
+.title {
+    font: 2em "Open Sans", sans-serif;
+}
+.results-title {
+    font: 1.25em "Open Sans", sans-serif;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+}
+.left-col {
+    width: 25%;
+    border-right: 2px solid grey;
+}
+.right-col {
+    width: 25%;
+    padding-left: 10px
+}
+.results {
+    height: 500px;
+    border: 1px solid;
+    font: 1em "Open Sans", sans-serif;
+    padding-left: 10px;
+    overflow: auto;
+}
